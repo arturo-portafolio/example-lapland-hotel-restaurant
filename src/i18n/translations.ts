@@ -84,9 +84,17 @@ export const translations: Record<Language, Record<string, string>> = {
     // WhatsApp
     'whatsapp.defaultMessage': 'Hei! Olen kiinnostunut Hotel-Ravintola Laponiasta ja haluaisin lisätietoja.',
     
+    // Header
+    'header.logo': 'Hotelli-Ravintola Laponia',
+    
     // Footer
-    'footer.rights': 'Kaikki oikeudet pidätetään.',
-    'footer.description': 'Koe arktinen taika Suomen Lapissa',
+    'footer.hotelName': 'Hotelli-Ravintola Laponia',
+    'footer.tagline': 'Koe arktinen taika Suomen Lapissa',
+    'footer.copyright': 'Hotel-Ravintola Laponia. Kaikki oikeudet pidätetään.',
+    'footer.social.facebook': 'Facebook-linkki',
+    'footer.social.instagram': 'Instagram-linkki',
+    'footer.social.tiktok': 'TikTok-linkki',
+    'footer.social.twitter': 'Twitter-linkki',
   },
   
   es: {
@@ -172,9 +180,17 @@ export const translations: Record<Language, Record<string, string>> = {
     // WhatsApp
     'whatsapp.defaultMessage': '¡Hola! Estoy interesado en Hotel-Restaurante Laponia y me gustaría más información.',
     
+    // Header
+    'header.logo': 'Hotel-Restaurante Laponia',
+    
     // Footer
-    'footer.rights': 'Todos los derechos reservados.',
-    'footer.description': 'Vive la magia ártica en la Laponia finlandesa',
+    'footer.hotelName': 'Hotel-Restaurante Laponia',
+    'footer.tagline': 'Vive la magia ártica en la Laponia finlandesa',
+    'footer.copyright': 'Hotel-Restaurante Laponia. Todos los derechos reservados.',
+    'footer.social.facebook': 'Enlace a Facebook',
+    'footer.social.instagram': 'Enlace a Instagram',
+    'footer.social.tiktok': 'Enlace a TikTok',
+    'footer.social.twitter': 'Enlace a Twitter',
   },
   
   en: {
@@ -260,9 +276,17 @@ export const translations: Record<Language, Record<string, string>> = {
     // WhatsApp
     'whatsapp.defaultMessage': 'Hello! I am interested in Hotel-Restaurant Laponia and would like more information.',
     
+    // Header
+    'header.logo': 'Lapland Hotel-Restaurant',
+    
     // Footer
-    'footer.rights': 'All rights reserved.',
-    'footer.description': 'Experience Arctic Magic in Finnish Lapland',
+    'footer.hotelName': 'Lapland Hotel-Restaurant',
+    'footer.tagline': 'Experience Arctic Magic in Finnish Lapland',
+    'footer.copyright': 'Hotel-Restaurant Laponia. All rights reserved.',
+    'footer.social.facebook': 'Facebook link',
+    'footer.social.instagram': 'Instagram link',
+    'footer.social.tiktok': 'TikTok link',
+    'footer.social.twitter': 'Twitter link',
   },
   
   sv: {
@@ -348,9 +372,17 @@ export const translations: Record<Language, Record<string, string>> = {
     // WhatsApp
     'whatsapp.defaultMessage': 'Hej! Jag är intresserad av Hotel-Restaurang Laponia och vill gärna ha mer information.',
     
+    // Header
+    'header.logo': 'Hotell-Restaurang Lappland',
+    
     // Footer
-    'footer.rights': 'Alla rättigheter förbehållna.',
-    'footer.description': 'Upplev arktisk magi i finska Lappland',
+    'footer.hotelName': 'Hotell-Restaurang Lappland',
+    'footer.tagline': 'Upplev arktisk magi i finska Lappland',
+    'footer.copyright': 'Hotel-Restaurang Laponia. Alla rättigheter förbehållna.',
+    'footer.social.facebook': 'Facebook-länk',
+    'footer.social.instagram': 'Instagram-länk',
+    'footer.social.tiktok': 'TikTok-länk',
+    'footer.social.twitter': 'Twitter-länk',
   },
 };
 
