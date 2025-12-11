@@ -33,6 +33,7 @@ export const RoomBookingDialog = ({ room }: RoomBookingDialogProps) => {
     guests: room.capacity.toString(),
     date: '',
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validateEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
