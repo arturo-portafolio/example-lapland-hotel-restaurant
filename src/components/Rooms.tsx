@@ -69,9 +69,8 @@ export const Rooms = () => {
                       {t('rooms.perNight')}
                     </span>
                   </div>
-                  <Button size="sm" className="bg-primary hover:bg-primary/90">
-                    {t('rooms.book')}
-                  </Button>
+{/* Ahora: botón + dialog de reserva */}
+<RoomBookingDialog room={room} />
                 </div>
               </div>
             </div>
