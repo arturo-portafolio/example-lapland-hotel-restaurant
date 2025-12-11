@@ -149,10 +149,15 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
   disabled={disabled}
   min={minDate}
   max={maxDate}
-  readOnly
+  onChange={(e) =>
+    setFormData({ ...formData, date: e.target.value })
+  }
+  onKeyDown={(e) => e.preventDefault()}
+  onPaste={(e) => e.preventDefault()}
   onClick={(e) => (e.currentTarget as HTMLInputElement).showPicker?.()}
   className="w-full text-center text-xs sm:text-sm md:text-base booking-date-input"
 />
+
 
             </div>
           </div>
