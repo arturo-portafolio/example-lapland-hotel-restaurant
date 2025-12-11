@@ -92,17 +92,6 @@ export const Newsletter = () => {
               {t('newsletter.subtitle')}
             </p>
           </div>
-
-          {/* Max Sends Reached Message */}
-          {maxReached && (
-            <div className="mb-6 p-4 bg-primary-foreground/10 rounded-xl flex items-start gap-3">
-              <AlertCircle className="text-primary-foreground flex-shrink-0 mt-0.5" size={20} />
-              <p className="text-primary-foreground text-sm">
-                {t('newsletter.maxSendsReached')}
-              </p>
-            </div>
-          )}
-
           {/* Success Message */}
           {success && (
             <div className="mb-6 p-4 bg-aurora-green/20 rounded-xl flex items-start gap-3 animate-fade-in">
