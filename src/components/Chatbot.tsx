@@ -197,15 +197,21 @@ export const Chatbot = () => {
   return (
     <>
       {/* Chat Bubble */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 p-4 bg-primary text-primary-foreground rounded-full shadow-frost hover:shadow-glow transition-all duration-300 ${
-          isOpen ? 'scale-0' : 'scale-100'
-        }`}
-        aria-label="Open chat"
-      >
-        <MessageCircle size={28} />
-      </button>
+<button
+  onClick={() => setIsOpen(true)}
+  className={`fixed bottom-6 right-6 z-50 p-4 bg-primary text-primary-foreground rounded-full
+              shadow-frost hover:shadow-glow
+              hover:scale-105 hover:-translate-y-1
+              focus-visible:scale-105 focus-visible:-translate-y-1
+              focus-visible:shadow-glow focus-visible:outline-none
+              focus-visible:ring-2 focus-visible:ring-primary/60
+              focus-visible:ring-offset-2 focus-visible:ring-offset-background
+              transition-all duration-300
+              ${isOpen ? 'scale-0' : 'scale-100'}`}
+  aria-label="Open chat"
+>
+  <MessageCircle size={28} />
+</button>
 
       {/* Chat Window */}
       {isOpen && (
