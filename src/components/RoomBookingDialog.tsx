@@ -66,15 +66,8 @@ export const RoomBookingDialog = ({ room }: RoomBookingDialogProps) => {
     e.preventDefault();
     if (locked || isSending) return;
 
-    // validaciones básicas
-    if (
-      !formData.name.trim() ||
-      !formData.email.trim() ||
-      !validateEmail(formData.email) ||
-      !formData.date
-    ) {
-      return;
-    }
+if (!validate()) return;
+
 
     setIsSending(true);
     setSuccess(false);
