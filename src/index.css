@@ -149,6 +149,18 @@
   .container-narrow {
     @apply max-w-6xl mx-auto;
   }
+    .booking-date-input {
+    position: relative;
+    text-align: center;
+    padding-right: 2.75rem;
+  }
+
+  .booking-date-input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 @layer utilities {
