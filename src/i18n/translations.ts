@@ -85,7 +85,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'whatsapp.defaultMessage': 'Hei! Olen kiinnostunut Hotel-Ravintola Laponiasta ja haluaisin lisätietoja.',
     
     // Header
-    'header.logo': 'Hotelli-Ravintola Laponia',
+    'header.logo': 'Lappi',
     
     // Footer
     'footer.hotelName': 'Hotelli-Ravintola Laponia',
@@ -181,7 +181,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'whatsapp.defaultMessage': '¡Hola! Estoy interesado en Hotel-Restaurante Laponia y me gustaría más información.',
     
     // Header
-    'header.logo': 'Hotel-Restaurante Laponia',
+    'header.logo': 'Laponia',
     
     // Footer
     'footer.hotelName': 'Hotel-Restaurante Laponia',
@@ -277,7 +277,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'whatsapp.defaultMessage': 'Hello! I am interested in Hotel-Restaurant Laponia and would like more information.',
     
     // Header
-    'header.logo': 'Lapland Hotel-Restaurant',
+    'header.logo': 'Lapland',
     
     // Footer
     'footer.hotelName': 'Lapland Hotel-Restaurant',
@@ -373,7 +373,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'whatsapp.defaultMessage': 'Hej! Jag är intresserad av Hotel-Restaurang Laponia och vill gärna ha mer information.',
     
     // Header
-    'header.logo': 'Hotell-Restaurang Lappland',
+    'header.logo': 'Lappland',
     
     // Footer
     'footer.hotelName': 'Hotell-Restaurang Lappland',
