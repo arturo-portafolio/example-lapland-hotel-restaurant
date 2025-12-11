@@ -10,11 +10,10 @@ export const About = () => {
           {/* Image */}
           <div className="relative">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-frost">
-              <img
-                src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800"
-                alt="Hotel Laponia"
-                className="w-full h-full object-cover"
-              />
+            src="/about-cabin.jpg"
+            alt="Hotel Laponia"
+            className="w-full h-full object-cover"
+             />
             </div>
             {/* Decorative element */}
             <div className="absolute -bottom-6 right-0 md:-right-6 w-32 h-32 bg-gradient-aurora rounded-2xl -z-10" />
