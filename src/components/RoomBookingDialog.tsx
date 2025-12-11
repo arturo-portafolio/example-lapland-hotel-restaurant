@@ -164,7 +164,7 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
 
           {success && (
             <div className="mt-2 rounded-xl bg-aurora-green/20 px-3 py-2 text-sm text-foreground">
-              {t('newsletter.success')}
+              {t('booking.success')}
             </div>
           )}
 
