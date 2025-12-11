@@ -17,7 +17,7 @@ export const translations: Record<Language, Record<string, string>> = {
     
     // About
     'about.title': 'Tervetuloa Laponiaan',
-    'about.description': 'Hotel-Ravintola Laponia sijaitsee keskellä lumoavaa Lapin maisemaa Rovaniemellä. Tarjoamme ainutlaatuisen yhdistelmän skandinaavista luksusta, perinteistä suomalaista vieraanvaraisuutta ja unohtumattomia arktisia elämyksiä. Olipa kyseessä revontulten ihailu, husky-safari tai rentouttava hetki aidossa suomalaisessa saunassa, meillä on kaikki mitä tarvitset täydelliseen Lapin lomaan.',
+    'about.description': 'Hotel-Ravintola Lappi sijaitsee keskellä lumoavaa Lapin maisemaa Rovaniemellä. Tarjoamme ainutlaatuisen yhdistelmän skandinaavista luksusta, perinteistä suomalaista vieraanvaraisuutta ja unohtumattomia arktisia elämyksiä. Olipa kyseessä revontulten ihailu, husky-safari tai rentouttava hetki aidossa suomalaisessa saunassa, meillä on kaikki mitä tarvitset täydelliseen Lapin lomaan.',
     
     // Rooms
     'rooms.title': 'Huoneemme',
@@ -209,7 +209,7 @@ export const translations: Record<Language, Record<string, string>> = {
     
     // About
     'about.title': 'Welcome to Laponia',
-    'about.description': 'Hotel-Restaurant Laponia is located in the heart of the enchanting Lapland landscape in Rovaniemi. We offer a unique combination of Scandinavian luxury, traditional Finnish hospitality, and unforgettable Arctic experiences. Whether you\'re watching the Northern Lights, enjoying a husky safari, or relaxing in an authentic Finnish sauna, we have everything you need for a perfect Lapland vacation.',
+    'about.description': 'Lapland Hotel-Restaurant is located in the heart of the enchanting Lapland landscape in Rovaniemi. We offer a unique combination of Scandinavian luxury, traditional Finnish hospitality, and unforgettable Arctic experiences. Whether you\'re watching the Northern Lights, enjoying a husky safari, or relaxing in an authentic Finnish sauna, we have everything you need for a perfect Lapland vacation.',
     
     // Rooms
     'rooms.title': 'Our Rooms',
@@ -305,7 +305,7 @@ export const translations: Record<Language, Record<string, string>> = {
     
     // About
     'about.title': 'Välkommen till Laponia',
-    'about.description': 'Hotel-Restaurang Laponia ligger i hjärtat av det förtrollande lappländska landskapet i Rovaniemi. Vi erbjuder en unik kombination av skandinavisk lyx, traditionell finsk gästfrihet och oförglömliga arktiska upplevelser. Oavsett om du vill se norrsken, njuta av en husky-safari eller slappna av i en äkta finsk bastu, har vi allt du behöver för en perfekt Lapplandssemester.',
+    'about.description': 'Hotell-Restaurang Lappland ligger i hjärtat av det förtrollande lappländska landskapet i Rovaniemi. Vi erbjuder en unik kombination av skandinavisk lyx, traditionell finsk gästfrihet och oförglömliga arktiska upplevelser. Oavsett om du vill se norrsken, njuta av en husky-safari eller slappna av i en äkta finsk bastu, har vi allt du behöver för en perfekt Lapplandssemester.',
     
     // Rooms
     'rooms.title': 'Våra Rum',
