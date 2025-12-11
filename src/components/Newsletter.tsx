@@ -39,6 +39,15 @@ export const Newsletter = () => {
     if (!formData.email.trim() || !validateEmail(formData.email)) {
       newErrors.email = t('newsletter.emailError');
     }
+
+      // 👇 AÑADIR ESTO
+  if (!formData.interest) {
+    newErrors.interest = t('newsletter.interestError');
+  }
+
+  if (!formData.humanCheck) {
+    newErrors.humanCheck = t('newsletter.humanCheckError');
+  }
     
     if (!formData.humanCheck) {
       newErrors.humanCheck = t('newsletter.humanCheckError');
