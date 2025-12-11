@@ -9,12 +9,13 @@ export const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}
           <div className="relative">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-frost">
-            src="/about-cabin.jpg"
-            alt="Hotel Laponia"
-            className="w-full h-full object-cover"
-             />
-            </div>
+<div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-frost">
+  <img
+    src="/about-cabin.jpg"
+    alt="Hotel Laponia"
+    className="w-full h-full object-cover"
+  />
+</div>
             {/* Decorative element */}
             <div className="absolute -bottom-6 right-0 md:-right-6 w-32 h-32 bg-gradient-aurora rounded-2xl -z-10" />
           </div>
