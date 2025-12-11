@@ -51,7 +51,7 @@ export const rooms: Room[] = [
     pricePerNight: 350,
     capacity: 2,
     amenities: ['wifi', 'breakfast', 'sauna', 'minibar', 'glass-ceiling', 'fireplace'],
-    image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800',
+    image: '/aurora-suite.jpg',
     translations: {
       fi: {
         name: 'Aurora Borealis -sviitti',
