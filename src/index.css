@@ -151,15 +151,6 @@
   }
 }
 
-  .booking-date-input {
-    padding-right: 2.5rem; /* deja espacio entre el texto y el icono */
-  }
-
-  .booking-date-input::-webkit-calendar-picker-indicator {
-    position: relative;
-    right: 0.25rem; /* cerca del borde derecho del input */
-  }
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
