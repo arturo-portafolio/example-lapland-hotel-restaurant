@@ -5,6 +5,7 @@ import type { Room } from '@/data/siteData';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { CalendarIcon } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -142,19 +143,28 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
 
             <div className="space-y-2">
               <Label htmlFor="booking-date">{t('booking.dateLabel')}</Label>
-<Input
-  id="booking-date"
-  type="date"
-  value={formData.date}
-  disabled={disabled}
-  min={minDate}
-  max={maxDate}
-  onChange={(e) =>
-    setFormData({ ...formData, date: e.target.value })
-  }
-  className="w-full text-center text-xs sm:text-sm md:text-base booking-date-input"
-/>
+              <div className="relative w-full">
+                <Input
+                  id="booking-date"
+                  type="date"
+                  value={formData.date}
+                  disabled={disabled}
+                  min={minDate}
+                  max={maxDate}
+                  onChange={(e) =>
+                    setFormData({ ...formData, date: e.target.value })
+                  }
+                  className="w-full booking-date-input"
+                />
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center gap-2 text-xs sm:text-sm md:text-base">
+                  <CalendarIcon className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-foreground">
+                    {formData.date || 'YYYY-MM-DD'}
+                  </span>
+                </div>
+              </div>
             </div>
+
           </div>
 
           {success && (
