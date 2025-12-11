@@ -17,7 +17,7 @@ export const About = () => {
               />
             </div>
             {/* Decorative element */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-aurora rounded-2xl -z-10" />
+            <div className="absolute -bottom-6 right-0 md:-right-6 w-32 h-32 bg-gradient-aurora rounded-2xl -z-10" />
           </div>
 
           {/* Content */}
