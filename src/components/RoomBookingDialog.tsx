@@ -156,17 +156,20 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="booking-guests">{t('rooms.guests')}</Label>
-              <Input
-                id="booking-guests"
-                type="number"
-                min={1}
-                max={room.capacity}
-                value={formData.guests}
-                disabled={disabled}
-                onChange={(e) =>
-                  setFormData({ ...formData, guests: e.target.value })
-                }
-              />
+<Input
+  id="booking-guests"
+  type="number"
+  min={1}
+  max={room.capacity}
+  value={formData.guests}
+  disabled={disabled}
+  onChange={(e) =>
+    setFormData({ ...formData, guests: e.target.value })
+  }
+  onKeyDown={(e) => e.preventDefault()}
+  onPaste={(e) => e.preventDefault()}
+/>
+
                           {errors.guests && (
                 <p className="text-red-600 text-sm">
                   {errors.guests}
