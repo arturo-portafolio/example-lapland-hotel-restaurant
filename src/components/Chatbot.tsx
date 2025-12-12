@@ -137,7 +137,7 @@ export const Chatbot = () => {
       // Try to call API endpoint, fallback to mock
       let responseText: string;
       
-      const CHATBOT_API_URL = 'https://n8n-yl61.onrender.com/webhook/hotel-restaurant-chatbot';  
+      const apiUrl = 'https://n8n-yl61.onrender.com/webhook/hotel-restaurant-chatbot';
       
       if (apiUrl) {
         try {
