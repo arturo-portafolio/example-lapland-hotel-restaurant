@@ -30,6 +30,7 @@ export const RoomBookingDialog = ({ room }: RoomBookingDialogProps) => {
 const [formData, setFormData] = useState({
   name: '',
   email: '',
+  phone: '',
   guests: room.capacity.toString(),
   checkIn: '',
   checkOut: '',
@@ -168,106 +169,122 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="booking-guests">{t('rooms.guests')}</Label>
+<div className="grid grid-cols-2 gap-4">
+  {/* Teléfono / WhatsApp */}
+  <div className="space-y-2">
+    <Label htmlFor="booking-phone">{t('location.phone')}</Label>
+    <Input
+      id="booking-phone"
+      type="tel"
+      value={formData.phone}
+      disabled={disabled}
+      onChange={(e) =>
+        setFormData({ ...formData, phone: e.target.value })
+      }
+    />
+    {/* (opcional) aquí podrías poner errors.phone si luego quieres validar */}
+  </div>
 
-              {/* Contenedor del input + flechas internas */}
-              <div className="relative">
-                <Input
-                  id="booking-guests"
-                  type="number"
-                  min={1}
-                  max={room.capacity}
-                  value={formData.guests}
-                  disabled={disabled}
-                  onChange={(e) =>
-                    setFormData({ ...formData, guests: e.target.value })
-                  }
-                  onKeyDown={(e) => e.preventDefault()}
-                  onPaste={(e) => e.preventDefault()}
-                  className="pr-10 booking-guests-input" // deja espacio para las flechas
-                />
+  {/* Huéspedes */}
+  <div className="space-y-2">
+    <Label htmlFor="booking-guests">{t('rooms.guests')}</Label>
 
-                {/* Flechas personalizadas "dentro" del input */}
- <div className="absolute inset-y-0 right-1 flex flex-col justify-center py-1">
-                  <button
-                    type="button"
-                    onClick={() => changeGuests(1)}
-                    disabled={disabled || Number(formData.guests) >= room.capacity}
-                    className="text-xs leading-none px-1 rounded hover:bg-muted disabled:opacity-50"
-                  >
-                    ▲
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => changeGuests(-1)}
-                    disabled={disabled || Number(formData.guests) <= 1}
-                    className="text-xs leading-none px-1 rounded hover:bg-muted disabled:opacity-50 mt-0.5"
-                  >
-                    ▼
-                  </button>
-                </div>
-              </div>
+    {/* Contenedor del input + flechas internas */}
+    <div className="relative">
+      <Input
+        id="booking-guests"
+        type="number"
+        min={1}
+        max={room.capacity}
+        value={formData.guests}
+        disabled={disabled}
+        onChange={(e) =>
+          setFormData({ ...formData, guests: e.target.value })
+        }
+        onKeyDown={(e) => e.preventDefault()}
+        onPaste={(e) => e.preventDefault()}
+        className="pr-10 booking-guests-input"
+      />
 
-              {errors.guests && (
-                <p className="text-red-600 text-sm">
-                  {errors.guests}
-                </p>
-              )}
-            </div>
-{/* Fecha de entrada */}
-<div className="space-y-2">
-  <Label htmlFor="booking-checkin">{t('booking.checkInLabel')}</Label>
-  <Input
-    id="booking-checkin"
-    type="date"
-    value={formData.checkIn}
-    disabled={disabled}
-    min={minDate}
-    max={maxDate}
-    onChange={(e) => {
-      const newCheckIn = e.target.value;
-      setFormData((prev) => ({
-        ...prev,
-        checkIn: newCheckIn,
-        // si la salida quedó antes que la entrada, la vaciamos
-        checkOut:
-          prev.checkOut && prev.checkOut < newCheckIn ? '' : prev.checkOut,
-      }));
-    }}
-    onKeyDown={(e) => e.preventDefault()}
-    onPaste={(e) => e.preventDefault()}
-    onClick={(e) => (e.currentTarget as HTMLInputElement).showPicker?.()}
-    className="w-full text-center text-xs sm:text-sm md:text-base booking-date-input"
-  />
+      {/* Flechas personalizadas "dentro" del input */}
+      <div className="absolute inset-y-0 right-1 flex flex-col justify-center py-1">
+        <button
+          type="button"
+          onClick={() => changeGuests(1)}
+          disabled={disabled || Number(formData.guests) >= room.capacity}
+          className="text-xs leading-none px-1 rounded hover:bg-muted disabled:opacity-50"
+        >
+          ▲
+        </button>
+        <button
+          type="button"
+          onClick={() => changeGuests(-1)}
+          disabled={disabled || Number(formData.guests) <= 1}
+          className="text-xs leading-none px-1 rounded hover:bg-muted disabled:opacity-50 mt-0.5"
+        >
+          ▼
+        </button>
+      </div>
+    </div>
+
+    {errors.guests && (
+      <p className="text-red-600 text-sm">
+        {errors.guests}
+      </p>
+    )}
+  </div>
+
+  {/* Fecha de entrada */}
+  <div className="space-y-2">
+    <Label htmlFor="booking-checkin">{t('booking.checkInLabel')}</Label>
+    <Input
+      id="booking-checkin"
+      type="date"
+      value={formData.checkIn}
+      disabled={disabled}
+      min={minDate}
+      max={maxDate}
+      onChange={(e) => {
+        const newCheckIn = e.target.value;
+        setFormData((prev) => ({
+          ...prev,
+          checkIn: newCheckIn,
+          checkOut:
+            prev.checkOut && prev.checkOut < newCheckIn ? '' : prev.checkOut,
+        }));
+      }}
+      onKeyDown={(e) => e.preventDefault()}
+      onPaste={(e) => e.preventDefault()}
+      onClick={(e) => (e.currentTarget as HTMLInputElement).showPicker?.()}
+      className="w-full text-center text-xs sm:text-sm md:text-base booking-date-input"
+    />
+  </div>
+
+  {/* Fecha de salida */}
+  <div className="space-y-2">
+    <Label htmlFor="booking-checkout">{t('booking.checkOutLabel')}</Label>
+    <Input
+      id="booking-checkout"
+      type="date"
+      value={formData.checkOut}
+      disabled={disabled}
+      min={minCheckOutDate}
+      max={maxDate}
+      onChange={(e) =>
+        setFormData({ ...formData, checkOut: e.target.value })
+      }
+      onKeyDown={(e) => e.preventDefault()}
+      onPaste={(e) => e.preventDefault()}
+      onClick={(e) => (e.currentTarget as HTMLInputElement).showPicker?.()}
+      className="w-full text-center text-xs sm:text-sm md:text-base booking-date-input"
+    />
+    {errors.date && (
+      <p className="text-red-600 text-sm">
+        {errors.date}
+      </p>
+    )}
+  </div>
 </div>
-
-{/* Fecha de salida */}
-<div className="space-y-2">
-  <Label htmlFor="booking-checkout">{t('booking.checkOutLabel')}</Label>
-  <Input
-    id="booking-checkout"
-    type="date"
-    value={formData.checkOut}
-    disabled={disabled}
-    min={minCheckOutDate}
-    max={maxDate}
-    onChange={(e) =>
-      setFormData({ ...formData, checkOut: e.target.value })
-    }
-    onKeyDown={(e) => e.preventDefault()}
-    onPaste={(e) => e.preventDefault()}
-    onClick={(e) => (e.currentTarget as HTMLInputElement).showPicker?.()}
-    className="w-full text-center text-xs sm:text-sm md:text-base booking-date-input"
-  />
-  {errors.date && (
-    <p className="text-red-600 text-sm">
-      {errors.date}
-    </p>
-  )}
-</div>
-          </div>
 
           {success && (
             <div className="mt-2 rounded-xl bg-aurora-green/20 px-3 py-2 text-sm text-foreground">
