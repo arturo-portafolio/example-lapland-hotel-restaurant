@@ -260,32 +260,33 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
     />
   </div>
 
-  {/* Fecha de salida */}
-            <div className="space-y-2">
-              <Label htmlFor="booking-date">{t('booking.dateLabel')}</Label>
-<Input
-  id="booking-date"
-  type="date"
-  value={formData.date}
-  disabled={disabled}
-  min={minDate}
-  max={maxDate}
-  onChange={(e) =>
-    setFormData({ ...formData, date: e.target.value })
-  }
-  onKeyDown={(e) => e.preventDefault()}
-  onPaste={(e) => e.preventDefault()}
-  onClick={(e) => (e.currentTarget as HTMLInputElement).showPicker?.()}
-  className="w-full text-center text-xs sm:text-sm md:text-base booking-date-input"
-/>
-              {errors.date && (
-                <p className="text-red-600 text-sm">
-                  {errors.date}
-                </p>
-              )}
-            </div>
-          </div>
-
+{/* Fecha de salida */}
+<div className="space-y-2">
+  <Label htmlFor="booking-checkout">{t('booking.checkOutLabel')}</Label>
+  <Input
+    id="booking-checkout"
+    type="date"
+    value={formData.checkOut}
+    disabled={disabled}
+    min={minCheckOutDate}
+    max={maxDate}
+    onChange={(e) =>
+      setFormData({ ...formData, checkOut: e.target.value })
+    }
+    onKeyDown={(e) => e.preventDefault()}
+    onPaste={(e) => e.preventDefault()}
+    onClick={(e) =>
+      (e.currentTarget as HTMLInputElement).showPicker?.()
+    }
+    className="w-full text-center text-xs sm:text-sm md:text-base booking-date-input"
+  />
+  {errors.date && (
+    <p className="text-red-600 text-sm">
+      {errors.date}
+    </p>
+  )}
+</div>
+</div>
           {success && (
             <div className="mt-2 rounded-xl bg-aurora-green/20 px-3 py-2 text-sm text-foreground">
                   <CheckCircle className="inline mr-2" size={16} />
