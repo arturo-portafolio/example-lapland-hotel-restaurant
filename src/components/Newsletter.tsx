@@ -119,6 +119,7 @@ if (!formData.humanCheck) {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   disabled={maxReached}
+                  maxLength={40}
                   placeholder={t('newsletter.namePlaceholder')}
                   className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
                 />
@@ -139,6 +140,7 @@ if (!formData.humanCheck) {
                   type="email"
                   value={formData.email}
                   disabled={maxReached}
+                  maxLength={40}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder={t('newsletter.emailPlaceholder')}
                   className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
