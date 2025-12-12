@@ -181,7 +181,7 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
                   }
                   onKeyDown={(e) => e.preventDefault()}
                   onPaste={(e) => e.preventDefault()}
-                  className="pr-10" // deja espacio para las flechas
+                  className="pr-10 booking-guests-input" // deja espacio para las flechas
                 />
 
                 {/* Flechas personalizadas "dentro" del input */}
@@ -257,6 +257,16 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
             </Button>
           </div>
         </form>
+                <style>{`
+          input.booking-guests-input::-webkit-outer-spin-button,
+          input.booking-guests-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+          input.booking-guests-input {
+            -moz-appearance: textfield;
+          }
+        `}</style>
       </DialogContent>
     </Dialog>
   );
