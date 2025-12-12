@@ -90,6 +90,16 @@ const minDate = today.toISOString().split('T')[0];
 const maxDateObj = new Date(today);
 maxDateObj.setFullYear(maxDateObj.getFullYear() + 5);
 const maxDate = maxDateObj.toISOString().split('T')[0];
+    const changeGuests = (delta: number) => {
+    setFormData((prev) => {
+      const current = Number(prev.guests) || 1;
+      let next = current + delta;
+      if (next < 1) next = 1;
+      if (next > room.capacity) next = room.capacity;
+      return { ...prev, guests: String(next) };
+    });
+  };
+
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -156,27 +166,51 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="booking-guests">{t('rooms.guests')}</Label>
-<Input
-  id="booking-guests"
-  type="number"
-  min={1}
-  max={room.capacity}
-  value={formData.guests}
-  disabled={disabled}
-  onChange={(e) =>
-    setFormData({ ...formData, guests: e.target.value })
-  }
-  onKeyDown={(e) => e.preventDefault()}
-  onPaste={(e) => e.preventDefault()}
-/>
 
-                          {errors.guests && (
+              {/* Contenedor del input + flechas internas */}
+              <div className="relative">
+                <Input
+                  id="booking-guests"
+                  type="number"
+                  min={1}
+                  max={room.capacity}
+                  value={formData.guests}
+                  disabled={disabled}
+                  onChange={(e) =>
+                    setFormData({ ...formData, guests: e.target.value })
+                  }
+                  onKeyDown={(e) => e.preventDefault()}
+                  onPaste={(e) => e.preventDefault()}
+                  className="pr-10" // deja espacio para las flechas
+                />
+
+                {/* Flechas personalizadas "dentro" del input */}
+                <div className="absolute inset-y-0 right-1 flex flex-col justify-center py-1">
+                  <button
+                    type="button"
+                    onClick={() => changeGuests(1)}
+                    disabled={disabled || Number(formData.guests) >= room.capacity}
+                    className="text-xs leading-none px-1 rounded hover:bg-muted disabled:opacity-50"
+                  >
+                    ▲
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => changeGuests(-1)}
+                    disabled={disabled || Number(formData.guests) <= 1}
+                    className="text-xs leading-none px-1 rounded hover:bg-muted disabled:opacity-50 mt-0.5"
+                  >
+                    ▼
+                  </button>
+                </div>
+              </div>
+
+              {errors.guests && (
                 <p className="text-red-600 text-sm">
                   {errors.guests}
                 </p>
               )}
             </div>
-
             <div className="space-y-2">
               <Label htmlFor="booking-date">{t('booking.dateLabel')}</Label>
 <Input
