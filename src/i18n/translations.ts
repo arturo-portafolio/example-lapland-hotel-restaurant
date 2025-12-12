@@ -27,6 +27,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'rooms.guests': 'vierasta',
     'rooms.book': 'Varaa',
     'booking.dateLabel': 'Päivämäärä',
+    'booking.checkInLabel': 'Saapumispäivä',  
+    'booking.checkOutLabel': 'Lähtöpäivä', 
     'booking.close': 'Sulje',
     'booking.success': 'Varauspyyntösi on lähetetty! Otamme sinuun pian yhteyttä vahvistaaksemme varauksesi.',
     'booking.dateError': 'Valitse varauksen päivämäärä.',
@@ -128,6 +130,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'rooms.guests': 'huéspedes',
     'rooms.book': 'Reservar',
     'booking.dateLabel': 'Fecha',
+    'booking.checkInLabel': 'Fecha de entrada',   // nuevo
+    'booking.checkOutLabel': 'Fecha de salida',   // nuevo
     'booking.close': 'Cerrar',
     'booking.success': 'Tu solicitud de reserva ha sido enviada. Nos pondremos en contacto contigo en breve para confirmar tu reserva.',
     'booking.dateError': 'La fecha de la reserva es obligatoria.',
@@ -229,6 +233,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'rooms.guests': 'guests',
     'rooms.book': 'Book',
     'booking.dateLabel': 'Date',
+    'booking.checkInLabel': 'Check-in date',    // nuevo
+    'booking.checkOutLabel': 'Check-out date',  // nuevo
     'booking.close': 'Close',
     'booking.success': 'Your booking request has been sent! We will contact you shortly to confirm your reservation.',
     'booking.dateError': 'Please select a booking date.',
@@ -330,6 +336,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'rooms.guests': 'gäster',
     'rooms.book': 'Boka',
     'booking.dateLabel': 'Datum',
+    'booking.checkInLabel': 'Incheckningsdatum',   // nuevo
+    'booking.checkOutLabel': 'Utcheckningsdatum',  // nuevo
     'booking.close': 'Stäng',
     'booking.success': 'Din bokningsförfrågan har skickats! Vi kontaktar dig snart för att bekräfta din reservation.',
     'booking.dateError': 'Välj ett datum för bokningen.',
