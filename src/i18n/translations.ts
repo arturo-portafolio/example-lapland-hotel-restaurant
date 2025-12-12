@@ -34,6 +34,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'booking.dateError': 'Valitse varauksen päivämäärä.',
     'booking.checkInError': 'Saapumispäivä on pakollinen.',
     'booking.checkOutError': 'Lähtöpäivä on pakollinen.',
+    'booking.phoneError': 'Anna kelvollinen puhelinnumero.',
 
     
     // Restaurant
@@ -140,6 +141,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'booking.dateError': 'La fecha de la reserva es obligatoria.',
     'booking.checkInError': 'La fecha de entrada es obligatoria.',
     'booking.checkOutError': 'La fecha de salida es obligatoria.',
+    'booking.phoneError': 'Introduce un número de teléfono válido.',
     
     // Restaurant
     'restaurant.title': 'Restaurante',
@@ -245,6 +247,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'booking.dateError': 'Please select a booking date.',
     'booking.checkInError': 'Check-in date is required.',
     'booking.checkOutError': 'Check-out date is required.',
+    'booking.phoneError': 'Please enter a valid phone number.',
     
     // Restaurant
     'restaurant.title': 'Restaurant',
@@ -350,6 +353,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'booking.dateError': 'Välj ett datum för bokningen.',
     'booking.checkInError': 'Incheckningsdatum krävs.',
     'booking.checkOutError': 'Utcheckningsdatum krävs.',
+    'booking.phoneError': 'Ange ett giltigt telefonnummer.',
 
     // Restaurant
     'restaurant.title': 'Restaurang',
