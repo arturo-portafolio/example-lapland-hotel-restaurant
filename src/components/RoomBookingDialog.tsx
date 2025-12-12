@@ -44,28 +44,28 @@ const [formData, setFormData] = useState({
     const validate = () => {
     const newErrors: Record<string, string> = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = t('newsletter.nameError');
-    }
+if (!formData.name.trim()) {
+  newErrors.name = 'newsletter.nameError';
+}
 
-    if (!formData.email.trim() || !validateEmail(formData.email)) {
-      newErrors.email = t('newsletter.emailError');
-    }
+if (!formData.email.trim() || !validateEmail(formData.email)) {
+  newErrors.email = 'newsletter.emailError';
+}
 
-    if (!formData.guests || Number(formData.guests) < 1) {
-      newErrors.guests = t('booking.guestsError');
-    }
+if (!formData.guests || Number(formData.guests) < 1) {
+  newErrors.guests = 'booking.guestsError';
+}
 
 // Fecha de entrada
 if (!formData.checkIn) {
-  newErrors.checkIn = t('booking.checkInError');
+  newErrors.checkIn = 'booking.checkInError';
 }
 
 // Fecha de salida
 if (!formData.checkOut) {
-  newErrors.checkOut = t('booking.checkOutError');
+  newErrors.checkOut = 'booking.checkOutError';
 } else if (formData.checkIn && formData.checkOut <= formData.checkIn) {
-  newErrors.checkOut = t('booking.checkOutError');
+  newErrors.checkOut = 'booking.checkOutError';
 }
 
     setErrors(newErrors);
@@ -151,11 +151,11 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
                 setFormData({ ...formData, name: e.target.value })
               }
             />
-            {errors.name && (
-              <p className="text-red-600 text-sm">
-                {errors.name}
-              </p>
-            )}
+{errors.name && (
+  <p className="text-red-600 text-sm">
+    {t(errors.name)}
+  </p>
+)}
           </div>
 
           <div className="space-y-2">
@@ -170,11 +170,11 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
                 setFormData({ ...formData, email: e.target.value })
               }
             />
-                      {errors.email && (
-              <p className="text-red-600 text-sm">
-                {errors.email}
-              </p>
-            )}
+{errors.email && (
+  <p className="text-red-600 text-sm">
+    {t(errors.email)}
+  </p>
+)}
           </div>
 
 <div className="grid grid-cols-2 gap-4">
@@ -236,11 +236,11 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
       </div>
     </div>
 
-    {errors.guests && (
-      <p className="text-red-600 text-sm">
-        {errors.guests}
-      </p>
-    )}
+{errors.guests && (
+  <p className="text-red-600 text-sm">
+    {t(errors.guests)}
+  </p>
+)}
   </div>
 
   {/* Fecha de entrada */}
@@ -269,7 +269,7 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
     />
 {errors.checkIn && (
   <p className="text-red-600 text-sm">
-    {errors.checkIn}
+    {t(errors.checkIn)}
   </p>
 )}
   </div>
@@ -296,7 +296,7 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
   />
 {errors.checkOut && (
   <p className="text-red-600 text-sm">
-    {errors.checkOut}
+    {t(errors.checkOut)}
   </p>
 )}
 </div>
