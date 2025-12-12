@@ -120,7 +120,7 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
       </DialogTrigger>
 
       {/* Dialog centrado, responsive y con scroll interno */}
-      <DialogContent className="sm:max-w-lg w-[95vw] max-h-[90vh] bg-card rounded-2xl p-0 overflow-hidden">
+      <DialogContent className="sm:max-w-lg w-[95vw] max-h-[95vh] bg-card rounded-2xl p-0 overflow-hidden">
         <DialogHeader className="px-6 pt-6 pb-3 border-b border-border">
           <DialogTitle className="font-display text-xl">
             {t('rooms.book')} – {room.translations[currentLang].name}
@@ -132,7 +132,7 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
 
         <form
           onSubmit={handleSubmit}
-          className="px-6 pt-4 pb-5 space-y-4 max-h-[70vh] overflow-y-auto"
+          className="px-6 pt-4 pb-5 space-y-4 max-h-[80vh] overflow-y-auto"
         >
           <div className="space-y-2">
             <Label htmlFor="booking-name">{t('newsletter.nameLabel')}</Label>
