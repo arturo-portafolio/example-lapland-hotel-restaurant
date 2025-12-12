@@ -145,6 +145,7 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
             <Input
               id="booking-name"
               value={formData.name}
+              maxLength={40}
               disabled={disabled}
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
@@ -164,6 +165,7 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
               type="email"
               value={formData.email}
               disabled={disabled}
+              maxLength={40}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
@@ -184,6 +186,7 @@ const maxDate = maxDateObj.toISOString().split('T')[0];
       type="tel"
       value={formData.phone}
       disabled={disabled}
+      maxLength={40}
       onChange={(e) =>
         setFormData({ ...formData, phone: e.target.value })
       }
