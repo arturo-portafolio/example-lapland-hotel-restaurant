@@ -32,26 +32,21 @@ export const Newsletter = () => {
   const validate = () => {
     const newErrors: Record<string, string> = {};
     
-    if (!formData.name.trim()) {
-      newErrors.name = t('newsletter.nameError');
-    }
-    
-    if (!formData.email.trim() || !validateEmail(formData.email)) {
-      newErrors.email = t('newsletter.emailError');
-    }
+if (!formData.name.trim()) {
+  newErrors.name = 'newsletter.nameError';
+}
 
-      // 👇 AÑADIR ESTO
-  if (!formData.interest) {
-    newErrors.interest = t('newsletter.interestError');
-  }
+if (!formData.email.trim() || !validateEmail(formData.email)) {
+  newErrors.email = 'newsletter.emailError';
+}
 
-  if (!formData.humanCheck) {
-    newErrors.humanCheck = t('newsletter.humanCheckError');
-  }
-    
-    if (!formData.humanCheck) {
-      newErrors.humanCheck = t('newsletter.humanCheckError');
-    }
+if (!formData.interest) {
+  newErrors.interest = 'newsletter.interestError';
+}
+
+if (!formData.humanCheck) {
+  newErrors.humanCheck = 'newsletter.humanCheckError';
+}
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -127,9 +122,11 @@ export const Newsletter = () => {
                   placeholder={t('newsletter.namePlaceholder')}
                   className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
                 />
-                {errors.name && (
-                  <p className="text-primary-foreground/90 text-sm">{errors.name}</p>
-                )}
+{errors.name && (
+  <p className="text-primary-foreground/90 text-sm">
+    {t(errors.name)}
+  </p>
+)}
               </div>
 
               {/* Email */}
@@ -146,9 +143,11 @@ export const Newsletter = () => {
                   placeholder={t('newsletter.emailPlaceholder')}
                   className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
                 />
-                {errors.email && (
-                  <p className="text-primary-foreground/90 text-sm">{errors.email}</p>
-                )}
+{errors.email && (
+  <p className="text-primary-foreground/90 text-sm">
+    {t(errors.email)}
+  </p>
+)}
               </div>
             </div>
 
@@ -173,11 +172,11 @@ export const Newsletter = () => {
                   </SelectContent>
                 </Select>
                 {/* 👇 AÑADIR ESTO */}
-                {errors.interest && (
-                  <p className="text-primary-foreground/90 text-sm">
-                    {errors.interest}
-                  </p>
-                )}
+{errors.interest && (
+  <p className="text-primary-foreground/90 text-sm">
+    {t(errors.interest)}
+  </p>
+)}
               </div>
 
               {/* Language */}
@@ -216,9 +215,11 @@ export const Newsletter = () => {
                   {t('newsletter.humanCheckLabel')}
                 </Label>
               </div>
-              {errors.humanCheck && (
-                <p className="text-primary-foreground/90 text-sm">{errors.humanCheck}</p>
-              )}
+{errors.humanCheck && (
+  <p className="text-primary-foreground/90 text-sm">
+    {t(errors.humanCheck)}
+  </p>
+)}
             </div>
 
             {/* Submit */}
