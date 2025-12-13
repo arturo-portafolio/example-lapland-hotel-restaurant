@@ -3,6 +3,7 @@ import { useTranslation } from '@/i18n/LanguageContext';
 import { chatConfig, siteConfig } from '@/data/siteData';
 import { Button } from '@/components/ui/button';
 import { MessageCircle, X, Send } from 'lucide-react';
+import { Language, translations } from '@/i18n/translations';
 
 interface Message {
   id: string;
@@ -10,9 +11,21 @@ interface Message {
   content: string;
 }
 
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null;
+
+const isLanguage = (value: unknown): value is Language =>
+  value === 'fi' || value === 'es' || value === 'en' || value === 'sv';
+
+const asString = (value: unknown): string | null =>
+  typeof value === 'string' ? value : null;
+
+const tForLang = (lang: Language, key: string, fallbackLang: Language): string =>
+  translations[lang][key] ?? translations[fallbackLang][key] ?? '';
+
 // Mock responses for when no API is configured
-const getMockResponse = (language: string, question: string): string => {
-  const responses: Record<string, string[]> = {
+const getMockResponse = (language: Language, question: string): string => {
+  const responses: Record<Language, string[]> = {
     fi: [
       'Kiitos kysymyksestäsi! Hotel-Ravintola Laponiassa tarjoamme ainutlaatuisia majoitusvaihtoehtoja arktisessa ympäristössä. Huoneemme on varustettu modernilla mukavuudella ja suomalaisella saunalla.',
       'Ravintolassamme tarjoillaan perinteisiä Lapin herkkuja kuten poronlihaa ja lohta. Suosittelemme kokeilemaan Aurora Borealis -sviittiämme täydelliseen revontulikokemukseen.',
@@ -35,7 +48,7 @@ const getMockResponse = (language: string, question: string): string => {
     ],
   };
   
-  const langResponses = responses[language] || responses.en;
+  const langResponses = responses[language];
   return langResponses[Math.floor(Math.random() * langResponses.length)];
 };
 
@@ -83,14 +96,17 @@ export const Chatbot = () => {
     }
   }, [currentLang, t, hasShownWelcome]);
 
-  const getRemainingQuestionsMessage = (count: number): string => {
-    const remaining = chatConfig.maxQuestionsPerSession - count;
-    if (remaining === 3) return t('chat.remainingQuestions.3');
-    if (remaining === 2) return t('chat.remainingQuestions.2');
-    if (remaining === 1) return t('chat.remainingQuestions.1');
-    if (remaining === 0) return t('chat.lastAnswerNotice');
-    return '';
-  };
+const getRemainingQuestionsMessage = (count: number, lang: Language): string => {
+  const remaining = chatConfig.maxQuestionsPerSession - count;
+
+  if (remaining === 3) return tForLang(lang, 'chat.remainingQuestions.3', currentLang as Language);
+  if (remaining === 2) return tForLang(lang, 'chat.remainingQuestions.2', currentLang as Language);
+  if (remaining === 1) return tForLang(lang, 'chat.remainingQuestions.1', currentLang as Language);
+  if (remaining === 0) return tForLang(lang, 'chat.lastAnswerNotice', currentLang as Language);
+
+  return '';
+};
+
 
   const handleSend = async () => {
     const trimmedInput = input.trim();
@@ -136,6 +152,7 @@ export const Chatbot = () => {
     try {
       // Try to call API endpoint, fallback to mock
       let responseText: string;
+      let effectiveLang: Language = isLanguage(currentLang) ? currentLang : 'en';
       
       const apiUrl = 'https://n8n-yl61.onrender.com/webhook/hotel-restaurant-chatbot';
       
@@ -153,20 +170,36 @@ export const Chatbot = () => {
           
           if (!response.ok) throw new Error('API error');
           
-const data = await response.json();
-responseText = (data.reply ?? data.output) || getMockResponse(currentLang, trimmedInput);
+const dataUnknown: unknown = await response.json();
+
+const apiLang: Language | null =
+  isRecord(dataUnknown) && isLanguage(dataUnknown.language)
+    ? dataUnknown.language
+    : null;
+
+if (apiLang) {
+  effectiveLang = apiLang;
+}
+
+const apiText: string | null =
+  isRecord(dataUnknown)
+    ? (asString(dataUnknown.reply) ?? asString(dataUnknown.output))
+    : null;
+
+responseText = apiText ?? getMockResponse(effectiveLang, trimmedInput);
 
         } catch {
-          responseText = getMockResponse(currentLang, trimmedInput);
+          responseText = getMockResponse(effectiveLang, trimmedInput);
         }
       } else {
         // Simulate API delay
         await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 1000));
-        responseText = getMockResponse(currentLang, trimmedInput);
+        responseText = getMockResponse(effectiveLang, trimmedInput);
+
       }
 
       // Add remaining questions notice
-      responseText += getRemainingQuestionsMessage(newQuestionCount);
+      responseText += getRemainingQuestionsMessage(newQuestionCount, effectiveLang);
 
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
